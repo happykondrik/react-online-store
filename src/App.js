@@ -1,6 +1,15 @@
-import Card from './components/Card'
+import Card from './components/Card/Card'
 import Header from './components/Header'
 import Drawer from './components/Drawer'
+
+const computers = [
+  { title: 'Notebook Apple MacBook Air 13" M1 256GB 2020 (MGN63) Space Gray', price: 1265, imageUrl: '/img/computers/1.png' },
+  { title: 'Notebook Apple MacBook Air 13" M1 256GB 2020 (MGN93) Silver', price: 1265, imageUrl: '/img/computers/1.png' },
+  { title: 'Notebook Apple MacBook Air 13" M1 256GB 2020 (MGND3) Gold', price: 1265, imageUrl: '/img/computers/1.png' },
+  { title: 'Notebook Apple MacBook Air 13" M1 512GB 2020 (MGNE3) Gold', price: 1600, imageUrl: '/img/computers/1.png' },
+  // {name: 'Ноутбук Apple MacBook Air 13" M1 512GB 2020 (MGNA3) Silver', price: 1600, imageUrl: '/img/computers/1.png'},
+  // {name: 'Ноутбук Apple MacBook Air 13" M1 512GB 2020 (MGN73) Space Gray', price: 1600, imageUrl: '/img/computers/1.png'}
+];
 
 function App() {
   return (
@@ -17,10 +26,14 @@ function App() {
         </div>
 
         <div className="computers">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {computers.map((obj) => (
+            <Card
+              title={obj.title}
+              price={obj.price}
+              imageUrl={obj.imageUrl}
+              onClick={() => console.log(obj)}
+            />
+          ))}
         </div>
       </div>
     </div>
