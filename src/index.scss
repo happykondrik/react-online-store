@@ -58,7 +58,27 @@ header {
     flex-direction: row;
 
     .cart {
-      margin-right: 30px;
+      display: flex;
+      align-items: center;
+      margin-right: 25px;
+      cursor: pointer;
+
+      img {
+        margin-right: 10px;
+      }
+
+    }
+    .favorite {
+      cursor: pointer;
+      img {
+        
+        margin-right: 10px;
+      }
+      
+    }
+
+    .user {
+      cursor: pointer;
     }
   }
 }
@@ -72,8 +92,7 @@ header {
 
   .computers {
     display: flex;
-
-    
+    flex-wrap: wrap;
   }
 }
 
@@ -87,10 +106,22 @@ header {
     border: 1px solid #f3f3f3;
     border-radius: 10px;
     padding: 0 15px;
+    position: relative;
+
+    .clearButton {
+      position: absolute;
+      right: 0;
+      height: 20px;
+      width: 20px;
+      top: 12px;
+      right: 12px;
+      cursor: pointer;
+    }
   }
 
   input {
-    border: 0;
+    outline: none;
+    border: none;
     padding: 13px;
     font-size: 16px;
     width: 200px;
@@ -108,13 +139,52 @@ header {
   display: flex;
   flex-direction: column;
 
+  .cartEmpty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    text-align: center;
+
+    .cartemptyImg {
+      margin-bottom: 20px;
+    }
+
+    .cartEmptyText {
+      opacity: 6;
+      width: 280px;
+      line-height: 24px;
+    }
+
+    .greenButton {
+      width: 245px;
+      margin-top: 20px;
+      position: relative;
+
+      &:hover {
+        img {
+          transform: rotate(180deg) translateX(3px);
+        }
+      }
+
+      img {
+        position: relative;
+        top: 1px;
+        transform: rotate(180deg);
+        margin-right: 15px;
+        transition: transform 0.15s ease-in-out;
+      }
+    }
+  }
+
   h2 {
     margin: 0;
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
 
-    img{
+    img {
       cursor: pointer;
     }
   }
@@ -231,7 +301,7 @@ header {
   font-weight: 500;
   cursor: pointer;
   transition: background 0.1 ease-in-out;
-  
+
   &:hover {
     background: lighten($color: #9dd558, $amount: 5%);
   }
