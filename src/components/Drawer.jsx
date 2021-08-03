@@ -1,10 +1,10 @@
 function Drawer({ onClose, onRemove, items = [] }) {
     return (
 
-        <div onClick={onClose} className="overlay">
+        <div className="overlay">
             <div className="drawer">
                 <h2>
-                    Cart<img className="removeButton" src="/img/button-remove.svg" alt="Close" />
+                    Cart<img onClick={onClose} className="removeButton" src="/img/button-remove.svg" alt="Close" />
                 </h2>
 
                 {
@@ -40,8 +40,8 @@ function Drawer({ onClose, onRemove, items = [] }) {
                         </div>
                         :
                         <div className="cartEmpty">
-                            <img className="cartEmptyImg" width={120} height={120} src="/img/empty-cart.jpg" />
-                            <h2></h2>
+                            <img className="cartEmptyImg" width={120} height={120} src="/img/empty-cart.jpg" alt="Cart empty"/>
+                            <h2>Cart empty</h2>
                             <p className="cartEmptyText">Add at least one product to place an order.</p>
                             <button onClick={onClose} className="greenButton" >
                                 <img src="/img/arrow.svg" alt="Arrow" />
