@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
+import styles from './Header.module.scss';
 
 function Header(props) {
     return (
         <header>
             <Link to="/" style={{ textDecoration: 'none' }}>
-                <div className="headerLeft">
+                <div className={styles.headerLeft}>
                     <img width={40} height={40} src="/img/logo.svg" alt="Logotype" />
                     <div>
                         <h3>React Online Store</h3>
@@ -13,17 +14,17 @@ function Header(props) {
                 </div>
             </Link>
 
-            <ul className="headerRight">
-                <li onClick={props.onClickCart} className="cart">
+            <ul className={styles.headerRight}>
+                <li onClick={props.onClickCart} className={styles.cart}>
                     <img width={18} height={18} src="/img/cart.svg" alt="Cart" />
                     <span>$ 199</span>
                 </li>
-                <li className="favorite" exact>
+                <li className={styles.favorite} exact>
                     <Link to="/favorites">
                         <img width={18} height={18} src="/img/favorite.svg" alt="Favorite" />
                     </Link>
                 </li>
-                <li className="user">
+                <li className={styles.user}>
                     <img width={18} height={18} src="/img/user.svg" alt="User" />
                 </li>
             </ul>

@@ -1,7 +1,7 @@
 import Card from '../components/Card'
 
-function Home({items, searchValue, setSearchValue, onChangeSearchInput, onAddToCart, onAddToFavorite}) {
-    return (
+function Home({items, searchValue, setSearchValue, onChangeSearchInput, onAddToCart, onAddToFavorite, cartItems}) {
+  return (
         <div className="content">
         <div className="search">
           <h1>{searchValue ? `Search by request: "${searchValue}"` : 'Computers catalog'}</h1>
@@ -13,11 +13,13 @@ function Home({items, searchValue, setSearchValue, onChangeSearchInput, onAddToC
         </div>
 
         <div className="computers">
-          {items.filter(item => item.title.toLowerCase().includes(searchValue)).map((item) => (
+          {items.filter(item => item.title.toLowerCase().includes(searchValue)).map((item, index) => (
             <Card
+              key={index}
               {...item}
               onFavorite={(obj) => onAddToFavorite(obj)}
               onPlus={(obj) => onAddToCart(obj)}
+              added={cartItems.some(obj => Number(obj.id) === Number(item.id))}
             />
           ))}
         </div>
